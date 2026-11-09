@@ -92,9 +92,9 @@ function handlePatientMessage(rawText) {
 		consentState = "active";
 		consentInput.checked = true;
 		updatePreferences();
-		addMessage("You are opted in to Northstar Health text messages. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
+		addMessage("You are opted in to UT Southwestern text messages. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
 	} else if (command === "HELP") {
-		addMessage("Northstar Health demo: reply YES to opt in, STOP to opt out, or call (800) 555-0100 for support. Msg & data rates may apply.", "health");
+		addMessage("UT Southwestern demo: reply YES to opt in, STOP to opt out, or call (800) 555-0100 for support. Msg & data rates may apply.", "health");
 	} else if (consentState === "active" && command === "C" && hasSentReminder) {
 		addMessage("Thanks. Your appointment reminder is marked confirmed in this demo.", "health");
 	} else if (consentState === "active" && command === "R" && hasSentReminder) {
@@ -112,7 +112,7 @@ function handlePatientMessage(rawText) {
 consentInput.addEventListener("change", () => {
 	if (consentInput.checked) {
 		consentState = "active";
-		addMessage("You are opted in to Northstar Health text messages. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
+		addMessage("You are opted in to UT Southwestern text messages. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
 	} else if (consentState === "active") {
 		consentState = "stopped";
 		addMessage("Your SMS preferences have been turned off in this demo.", "health");
@@ -157,9 +157,9 @@ document.querySelector("#reset-demo").addEventListener("click", () => {
 	document.documentElement.dataset.theme = "light";
 	themeButton.textContent = "Use dark theme";
 	themeButton.setAttribute("aria-pressed", "false");
-	addMessage("Northstar Health: Reply YES to opt in to appointment reminders by text. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
+	addMessage("UT Southwestern: Reply YES to opt in to appointment reminders by text. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
 	updatePreferences();
 });
 
-addMessage("Northstar Health: Reply YES to opt in to appointment reminders by text. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
+addMessage("UT Southwestern: Reply YES to opt in to appointment reminders by text. Message and data rates may apply. Reply STOP to opt out or HELP for help.", "health");
 updatePreferences();
