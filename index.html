@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f4f2">
+  <meta name="description" content="A local prototype for SMS consent and appointment reminders.">
+  <title>SMS Health Assistant Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <header class="page-head">
+        <p class="eyebrow">PATIENT COMMUNICATIONS / DEMO</p>
+        <h1>SMS health assistant</h1>
+        <p class="mut">Review a patient's text preferences and try a simulated reminder conversation.</p>
+      </header>
+
+      <section class="card" aria-labelledby="settings-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="settings-title">Communication preferences</h2>
+            <p class="mut">MyChart account · Jordan Lee</p>
+          </div>
+          <span class="pill" id="consent-status" role="status">Not opted in</span>
+        </div>
+
+        <div class="mcw">
+          <div class="mc-top">
+            <span class="mc-logo">MyChart</span>
+            <span class="sp"></span>
+            <span>Jordan Lee</span>
+          </div>
+          <div class="mc-crumb">Account settings &gt; Communication preferences</div>
+          <div class="mc-b">
+            <h1>Text message settings</h1>
+            <p class="m2">Choose how Northstar Health can contact you by SMS.</p>
+
+            <div class="mc-card">
+              <h2>Mobile number</h2>
+              <p class="m2">This demo uses a fictional phone number.</p>
+              <label for="mobile-number">Phone number</label>
+              <input class="mi" id="mobile-number" type="tel" value="(555) 010-0142" autocomplete="off" inputmode="tel" readonly>
+            </div>
+
+            <div class="mc-card">
+              <h2>SMS consent</h2>
+              <p class="m2">Consent is optional. Message and data rates may apply. Reply STOP to opt out or HELP for help.</p>
+              <label class="row" for="sms-consent">
+                <input id="sms-consent" type="checkbox">
+                <span>I agree to receive text messages from Northstar Health at the number above.</span>
+              </label>
+            </div>
+
+            <div class="mc-card">
+              <h2>Message preferences</h2>
+              <p class="m2">Choose the types of SMS messages you want to receive.</p>
+              <label class="row" for="appointment-reminders">
+                <input id="appointment-reminders" type="checkbox" checked disabled>
+                <span>Appointment reminders</span>
+              </label>
+              <label class="row" for="care-updates">
+                <input id="care-updates" type="checkbox" disabled>
+                <span>General care updates</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card controls" aria-labelledby="controls-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="controls-title">Demo controls</h2>
+            <p class="mut">Messages are simulated in this browser only.</p>
+          </div>
+        </div>
+        <div class="control-row">
+          <button class="mb" id="send-reminder" type="button" disabled>Send test reminder</button>
+          <button class="btn" id="reset-demo" type="button">Reset demo</button>
+          <button class="btn" id="theme-toggle" type="button" aria-pressed="false">Use dark theme</button>
+        </div>
+        <p class="demo-note">Prototype only. Do not enter real health information. No messages are sent and no data is saved.</p>
+      </section>
+    </main>
+
+    <aside class="pw" aria-label="Simulated iPhone conversation">
+      <div class="dev">
+        <div class="scr">
+          <div class="isl" aria-hidden="true"></div>
+          <div class="sb"><span>9:41</span><span>LTE&nbsp;&nbsp;100%</span></div>
+          <div class="pane">
+            <div class="nav">
+              <span class="back" aria-hidden="true">&lt;</span>
+              <div class="av" aria-hidden="true">N</div>
+              <small id="phone-title">Northstar Health</small>
+            </div>
+            <div class="th" id="message-thread" role="log" aria-label="Text message conversation" aria-live="polite" aria-relevant="additions"></div>
+            <div class="qr" id="quick-replies" aria-label="Suggested replies"></div>
+            <form class="in" id="message-form">
+              <div class="plus" aria-hidden="true">+</div>
+              <div class="fld">
+                <label class="visually-hidden" for="message-input">Text message</label>
+                <input id="message-input" type="text" placeholder="Text Message" autocomplete="off" maxlength="240">
+                <button class="snd" id="send-message" type="submit" aria-label="Send message" disabled><span aria-hidden="true">&uarr;</span></button>
+              </div>
+            </form>
+            <div class="hi" aria-hidden="true"><i></i></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>
